@@ -1,0 +1,47 @@
+[
+    {
+        "trace_id": "b3d82782-6cc1-4621-a907-c9f0b5c498e4",
+        "run_id": "RUN-TOPIC4-4001",
+        "task_id": "TASK-CREDIT",
+        "service": "credit_service",
+        "outcome": "success",
+        "timestamp": "1794934192.3237553",
+        "duration_ms": 0.002,
+        "details": {
+            "success": true,
+            "customer_id": "CUSTOMER-4001",
+            "credit_eligible": true,
+            "provider": "fake_credit_provider"
+        }
+    },
+    {
+        "trace_id": "9aa1eea8-1900-4352-a584-aebb8af963ff",
+        "run_id": "RUN-TOPIC4-4001",
+        "task_id": "TASK-INVENTORY",
+        "service": "inventory_service",
+        "outcome": "success",
+        "timestamp": "1794934192.323806",
+        "duration_ms": 0.004,
+        "details": {
+            "success": true,
+            "sku": "LAPTOP-15",
+            "available_quantity": 10,
+            "requested_quantity": 1,
+            "provider": "fake_inventory_provider"
+        }
+    },
+    {
+        "trace_id": "3d0ce11f-f468-4bfd-abe4-accf80ed2067",
+        "run_id": "RUN-TOPIC4-4001",
+        "task_id": "TASK-ADDRESS",
+        "service": "address_service",
+        "outcome": "success",
+        "timestamp": "1794934192.323834",
+        "duration_ms": 0.003,
+        "details": {
+            "success": true,
+            "address_valid": true,
+            "provider": "fake_address_provider"
+        }
+    }
+]

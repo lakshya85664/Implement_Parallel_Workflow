@@ -1,0 +1,54 @@
+{
+    "task": "Task 5 - Operator Runbook and Evidence Report",
+    "generated_at": "2026-11-17T16:49:31.140468+00:00",
+    "evidence_complete": true,
+    "evidence_summary": {
+        "expected": 7,
+        "found": 7,
+        "valid_json": 7
+    },
+    "happy_path": {
+        "workflow_state": "completed",
+        "approval": true,
+        "successful_checks": 3,
+        "failed_checks": 0,
+        "elapsed_ms": 152.325
+    },
+    "failure_recovery": {
+        "transient_status": "succeeded",
+        "transient_attempts": 3,
+        "permanent_status": "permanent_failure",
+        "malformed_status": "malformed_response",
+        "timeout_status": "timeout",
+        "replay_prevented_duplicate": true,
+        "duplicate_trigger_blocked": true
+    },
+    "integration": {
+        "workflow_success": true,
+        "trace_count": 3,
+        "metrics": {
+            "workflow_starts": 1,
+            "workflow_completions": 1,
+            "workflow_failures": 0,
+            "task_successes": 3,
+            "task_failures": 0,
+            "total_service_calls": 3,
+            "total_latency_ms": 0.01,
+            "average_latency_ms": 0.003,
+            "max_latency_ms": 0.004
+        }
+    },
+    "operator_actions": {
+        "completed": "Verify approval and archive the run evidence.",
+        "needs_review": "Inspect the failure and authorize safe recovery.",
+        "timeout": "Inspect dependency health and enforce client timeout.",
+        "replay": "Reuse the original idempotency key.",
+        "malformed_response": "Quarantine and inspect the response contract."
+    },
+    "limitations": [
+        "Synthetic adapters only; no production API calls.",
+        "Idempotency and duplicate trigger stores are in-memory.",
+        "Running Python threads cannot be forcibly terminated.",
+        "Production deployment requires durable state and distributed controls."
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "workflow_starts": 1,
+    "workflow_completions": 1,
+    "workflow_failures": 0,
+    "task_successes": 3,
+    "task_failures": 0,
+    "total_service_calls": 3,
+    "total_latency_ms": 0.009,
+    "average_latency_ms": 0.003,
+    "max_latency_ms": 0.004
+}

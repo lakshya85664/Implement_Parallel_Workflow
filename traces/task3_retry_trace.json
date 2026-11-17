@@ -1,0 +1,31 @@
+[
+    {
+        "trace_id": "f3b6372b-b9df-4169-ba28-ebb08fe66220",
+        "task_id": "TASK-CREDIT",
+        "attempt": 1,
+        "outcome": "transient_failure",
+        "duration_ms": 0.038,
+        "error": "Temporary dependency failure",
+        "timestamp": 1794927520.6083379,
+        "backoff_seconds": 0.1
+    },
+    {
+        "trace_id": "af4c0213-d7fa-4487-b122-c895a3a6faf2",
+        "task_id": "TASK-CREDIT",
+        "attempt": 2,
+        "outcome": "transient_failure",
+        "duration_ms": 0.012,
+        "error": "Temporary dependency failure",
+        "timestamp": 1794927520.608356,
+        "backoff_seconds": 0.2
+    },
+    {
+        "trace_id": "79044379-3fb1-4d18-ab1a-fe0687408066",
+        "task_id": "TASK-CREDIT",
+        "attempt": 3,
+        "outcome": "success",
+        "duration_ms": 0.008,
+        "error": null,
+        "timestamp": 1794927520.6083682
+    }
+]

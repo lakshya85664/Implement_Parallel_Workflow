@@ -1,0 +1,96 @@
+{
+    "run_id": "RUN-TOPIC4-001",
+    "business_key": "ORDER-1001",
+    "state": "running",
+    "attempts": 0,
+    "input_data": {
+        "business_key": "ORDER-1001",
+        "order_id": "ORDER-1001",
+        "customer_id": "CUSTOMER-501",
+        "sku": "LAPTOP-15",
+        "quantity": 1,
+        "delivery_address": "Synthetic Address, Jaipur"
+    },
+    "tasks": [
+        {
+            "task_id": "TASK-CREDIT",
+            "name": "credit_check",
+            "owner": "credit_service",
+            "status": "pending",
+            "dependencies": [],
+            "attempts": 0,
+            "result": {},
+            "error": null
+        },
+        {
+            "task_id": "TASK-INVENTORY",
+            "name": "inventory_check",
+            "owner": "inventory_service",
+            "status": "pending",
+            "dependencies": [],
+            "attempts": 0,
+            "result": {},
+            "error": null
+        },
+        {
+            "task_id": "TASK-ADDRESS",
+            "name": "address_check",
+            "owner": "address_service",
+            "status": "pending",
+            "dependencies": [],
+            "attempts": 0,
+            "result": {},
+            "error": null
+        },
+        {
+            "task_id": "TASK-APPROVAL",
+            "name": "approve_order",
+            "owner": "order_service",
+            "status": "pending",
+            "dependencies": [
+                "TASK-CREDIT",
+                "TASK-INVENTORY",
+                "TASK-ADDRESS"
+            ],
+            "attempts": 0,
+            "result": {},
+            "error": null
+        }
+    ],
+    "events": [
+        {
+            "event_id": "71c64ef3-d4ad-4bf2-81de-bf45e18694b8",
+            "run_id": "RUN-TOPIC4-001",
+            "event_type": "workflow.created",
+            "state": "created",
+            "timestamp": "2026-11-17T14:54:26.252723+00:00",
+            "details": {
+                "scenario": "parallel_order_checks",
+                "independent_checks": [
+                    "credit_check",
+                    "inventory_check",
+                    "address_check"
+                ],
+                "approval_dependency": [
+                    "TASK-CREDIT",
+                    "TASK-INVENTORY",
+                    "TASK-ADDRESS"
+                ]
+            }
+        },
+        {
+            "event_id": "72dad5b1-84e2-4a72-a195-45b663b2fd66",
+            "run_id": "RUN-TOPIC4-001",
+            "event_type": "start",
+            "state": "running",
+            "timestamp": "2026-11-17T14:54:26.252745+00:00",
+            "details": {
+                "previous_state": "created",
+                "next_state": "running"
+            }
+        }
+    ],
+    "traces": [],
+    "created_at": "2026-11-17T14:54:26.252658+00:00",
+    "updated_at": "2026-11-17T14:54:26.252745+00:00"
+}

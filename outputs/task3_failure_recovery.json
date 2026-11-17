@@ -1,0 +1,98 @@
+{
+    "task": "Task 3 - Failure, Retry, and Replay Safety",
+    "transient_failure": {
+        "success": true,
+        "status": "succeeded",
+        "attempts": 3,
+        "result": {
+            "success": true,
+            "account_id": "ACC-ORDER-1001"
+        },
+        "error": null,
+        "next_action": "none"
+    },
+    "permanent_failure": {
+        "success": false,
+        "status": "permanent_failure",
+        "attempts": 1,
+        "result": {},
+        "error": "Insufficient stock",
+        "next_action": "operator_review"
+    },
+    "malformed_response": {
+        "success": false,
+        "status": "malformed_response",
+        "attempts": 1,
+        "result": {},
+        "error": "Response is missing success field",
+        "next_action": "quarantine_response"
+    },
+    "timeout": {
+        "success": false,
+        "status": "timeout",
+        "attempts": 1,
+        "result": {},
+        "error": "Task exceeded configured timeout",
+        "next_action": "retry_or_operator_review"
+    },
+    "idempotency": {
+        "first_call": {
+            "replayed": false,
+            "result": {
+                "account_id": "ACC-ORDER-1001",
+                "created": true
+            }
+        },
+        "replay_call": {
+            "replayed": true,
+            "result": {
+                "account_id": "ACC-ORDER-1001",
+                "created": true
+            }
+        },
+        "side_effect_count": 1
+    },
+    "duplicate_trigger": {
+        "first": {
+            "accepted": true,
+            "duplicate": false,
+            "run_id": "47404874-25b7-46a5-ade6-8479ae1375fe"
+        },
+        "second": {
+            "accepted": false,
+            "duplicate": true,
+            "run_id": "47404874-25b7-46a5-ade6-8479ae1375fe"
+        }
+    },
+    "retry_trace": [
+        {
+            "trace_id": "f3b6372b-b9df-4169-ba28-ebb08fe66220",
+            "task_id": "TASK-CREDIT",
+            "attempt": 1,
+            "outcome": "transient_failure",
+            "duration_ms": 0.038,
+            "error": "Temporary dependency failure",
+            "timestamp": 1794927520.6083379,
+            "backoff_seconds": 0.1
+        },
+        {
+            "trace_id": "af4c0213-d7fa-4487-b122-c895a3a6faf2",
+            "task_id": "TASK-CREDIT",
+            "attempt": 2,
+            "outcome": "transient_failure",
+            "duration_ms": 0.012,
+            "error": "Temporary dependency failure",
+            "timestamp": 1794927520.608356,
+            "backoff_seconds": 0.2
+        },
+        {
+            "trace_id": "79044379-3fb1-4d18-ab1a-fe0687408066",
+            "task_id": "TASK-CREDIT",
+            "attempt": 3,
+            "outcome": "success",
+            "duration_ms": 0.008,
+            "error": null,
+            "timestamp": 1794927520.6083682
+        }
+    ]
+}
